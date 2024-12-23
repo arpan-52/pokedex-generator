@@ -21,8 +21,11 @@ jobs:
       - name: Build
         run: npm run build
         
+      - name: Move Build Files to Root
+        run: cp -r dist/* .
+        
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
-          branch: gh-pages
-          folder: dist
+          branch: main
+          folder: .
